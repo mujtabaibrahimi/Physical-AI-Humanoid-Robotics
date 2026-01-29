@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "mcp__github__push_files",
+      "Bash(npm install)",
+      "Bash(npm start)",
+      "Bash(npx:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(find:*)",
+      "Bash(ping:*)",
+      "Bash(subst P: \"C:\\\\Users\\\\mudda\\\\Desktop\\\\Physical AI & Humanoid Robotics\")",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}

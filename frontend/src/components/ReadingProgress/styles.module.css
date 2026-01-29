@@ -1,0 +1,90 @@
+/**
+ * ReadingProgress Component Styles
+ */
+
+.progressContainer {
+  position: fixed;
+  top: 60px; /* Below navbar */
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--surface-border);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--ifm-color-primary-light) 0%,
+    var(--ifm-color-primary) 50%,
+    var(--ifm-color-primary-dark) 100%
+  );
+  transition: width 150ms ease-out;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Add subtle glow effect */
+.progressBar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3)
+  );
+  opacity: 0;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Dark theme */
+[data-theme='dark'] .progressContainer {
+  background-color: var(--surface-border);
+}
+
+[data-theme='dark'] .progressBar {
+  background: linear-gradient(
+    90deg,
+    var(--ifm-color-primary-darker) 0%,
+    var(--ifm-color-primary) 50%,
+    var(--ifm-color-primary-light) 100%
+  );
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .progressBar {
+    transition: none;
+  }
+
+  .progressBar::after {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Mobile - slightly thicker for touch visibility */
+@media screen and (max-width: 768px) {
+  .progressContainer {
+    height: 4px;
+  }
+}

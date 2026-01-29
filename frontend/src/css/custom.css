@@ -1,0 +1,832 @@
+/**
+ * Physical AI & Humanoid Robotics Textbook
+ * High-Contrast Minimalist Design System
+ * Inspired by Minus - sharp, intentional, accessible
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ==========================================================================
+   1. Design Tokens - High Contrast System
+   ========================================================================== */
+
+:root {
+  /* ---------- Core Colors - Maximum Contrast ---------- */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+  --color-gray-950: #0a0a0a;
+
+  /* ---------- Semantic Mapping ---------- */
+  --text-primary: var(--color-black);
+  --text-secondary: var(--color-gray-600);
+  --text-muted: var(--color-gray-500);
+  --text-inverse: var(--color-white);
+
+  --surface-background: var(--color-white);
+  --surface-elevated: var(--color-gray-50);
+  --surface-border: var(--color-gray-200);
+  --surface-border-strong: var(--color-black);
+
+  /* ---------- Docusaurus Overrides ---------- */
+  --ifm-color-primary: #000000;
+  --ifm-color-primary-dark: #000000;
+  --ifm-color-primary-darker: #000000;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #262626;
+  --ifm-color-primary-lighter: #404040;
+  --ifm-color-primary-lightest: #525252;
+
+  --ifm-background-color: var(--color-white);
+  --ifm-background-surface-color: var(--color-gray-50);
+  --ifm-font-color-base: var(--color-black);
+  --ifm-font-color-secondary: var(--color-gray-600);
+
+  /* ---------- Typography ---------- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+
+  --ifm-font-family-base: var(--font-sans);
+  --ifm-heading-font-family: var(--font-sans);
+  --ifm-font-family-monospace: var(--font-mono);
+  --ifm-font-size-base: 100%;
+  --ifm-line-height-base: 1.6;
+  --ifm-heading-font-weight: 600;
+
+  /* ---------- Spacing ---------- */
+  --ifm-global-spacing: 1rem;
+  --ifm-spacing-vertical: 1.5rem;
+  --ifm-spacing-horizontal: 1rem;
+
+  /* ---------- Borders & Radius ---------- */
+  --ifm-global-radius: 0;
+  --ifm-code-border-radius: 0;
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+
+  /* ---------- Shadows - Minimal ---------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+  /* ---------- Transitions ---------- */
+  --transition-fast: 100ms ease;
+  --transition-normal: 150ms ease;
+
+  /* ---------- Layout ---------- */
+  --content-max-width: 680px;
+  --container-max-width: 1200px;
+
+  /* Code highlighting */
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- Dark Theme ---------- */
+[data-theme='dark'] {
+  --ifm-color-primary: #ffffff;
+  --ifm-color-primary-dark: #e5e5e5;
+  --ifm-color-primary-darker: #d4d4d4;
+  --ifm-color-primary-darkest: #a3a3a3;
+  --ifm-color-primary-light: #ffffff;
+  --ifm-color-primary-lighter: #ffffff;
+  --ifm-color-primary-lightest: #ffffff;
+
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-gray-400);
+  --text-muted: var(--color-gray-500);
+  --text-inverse: var(--color-black);
+
+  --surface-background: var(--color-black);
+  --surface-elevated: var(--color-gray-900);
+  --surface-border: var(--color-gray-800);
+  --surface-border-strong: var(--color-white);
+
+  --ifm-background-color: var(--color-black);
+  --ifm-background-surface-color: var(--color-gray-900);
+  --ifm-font-color-base: var(--color-white);
+  --ifm-font-color-secondary: var(--color-gray-400);
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   2. Base Typography
+   ========================================================================== */
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background-color: var(--surface-background);
+  letter-spacing: -0.01em;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+[data-theme='dark'] ::selection {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* ==========================================================================
+   3. Navigation - Clean & Minimal
+   ========================================================================== */
+
+.navbar {
+  background-color: var(--surface-background);
+  box-shadow: none;
+  border-bottom: 1px solid var(--surface-border);
+  padding: 0.75rem 0;
+}
+
+.navbar__title {
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.navbar__link {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--text-primary);
+}
+
+.navbar__item {
+  padding: 0 1rem;
+}
+
+/* Mobile menu */
+.navbar-sidebar {
+  background-color: var(--surface-background);
+}
+
+.navbar-sidebar__brand {
+  border-bottom: 1px solid var(--surface-border);
+}
+
+/* ==========================================================================
+   4. Sidebar - Minimal Navigation
+   ========================================================================== */
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--surface-border);
+}
+
+.menu__link {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  border-left: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.menu__link:hover {
+  background-color: transparent;
+  color: var(--text-primary);
+  border-left-color: var(--surface-border);
+}
+
+.menu__link--active {
+  background-color: transparent;
+  color: var(--text-primary);
+  font-weight: 600;
+  border-left-color: var(--color-black);
+}
+
+[data-theme='dark'] .menu__link--active {
+  border-left-color: var(--color-white);
+}
+
+.menu__list-item-collapsible > .menu__link {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   5. Content Area - Focused Reading
+   ========================================================================== */
+
+.markdown {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .markdown {
+    padding: 4rem 2rem;
+  }
+}
+
+/* Paragraphs */
+.markdown p {
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   6. Headings - Strong Hierarchy
+   ========================================================================== */
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Chapter Title */
+.markdown h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--color-black);
+}
+
+[data-theme='dark'] .markdown h1 {
+  border-bottom-color: var(--color-white);
+}
+
+/* Major Section */
+.markdown h2 {
+  font-size: 1.75rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--surface-border);
+}
+
+.markdown h1 + h2 {
+  margin-top: 2rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* Subsection */
+.markdown h3 {
+  font-size: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+/* Minor */
+.markdown h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   7. Links - Underlined & Clear
+   ========================================================================== */
+
+.markdown a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color var(--transition-fast);
+}
+
+.markdown a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* External link indicator */
+.markdown a[href^="http"]::after {
+  content: ' ↗';
+  font-size: 0.75em;
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   8. Code - Monospace & Clean
+   ========================================================================== */
+
+/* Inline code */
+.markdown code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background-color: var(--surface-elevated);
+  padding: 0.125rem 0.375rem;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius-sm);
+}
+
+/* Code blocks */
+.markdown pre {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: var(--color-gray-950);
+  border: 1px solid var(--surface-border);
+  border-radius: 0;
+  overflow-x: auto;
+}
+
+[data-theme='dark'] .markdown pre {
+  background-color: var(--color-gray-900);
+  border-color: var(--color-gray-800);
+}
+
+.markdown pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-gray-100);
+}
+
+/* ==========================================================================
+   9. Blockquotes - Emphasis
+   ========================================================================== */
+
+.markdown blockquote {
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  border-left: 4px solid var(--color-black);
+  background-color: var(--surface-elevated);
+  font-style: normal;
+}
+
+[data-theme='dark'] .markdown blockquote {
+  border-left-color: var(--color-white);
+}
+
+.markdown blockquote p {
+  margin-bottom: 0.75rem;
+}
+
+.markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   10. Lists - Clear Structure
+   ========================================================================== */
+
+.markdown ul,
+.markdown ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.markdown li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.markdown li::marker {
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   11. Tables - Data Clarity
+   ========================================================================== */
+
+.markdown table {
+  width: 100%;
+  margin: 2rem 0;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.markdown th,
+.markdown td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.markdown th {
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--color-black);
+}
+
+[data-theme='dark'] .markdown th {
+  border-bottom-color: var(--color-white);
+}
+
+.markdown tr:hover {
+  background-color: var(--surface-elevated);
+}
+
+/* ==========================================================================
+   12. Images
+   ========================================================================== */
+
+.markdown img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  border: 1px solid var(--surface-border);
+}
+
+/* ==========================================================================
+   13. Horizontal Rule
+   ========================================================================== */
+
+.markdown hr {
+  margin: 4rem auto;
+  border: none;
+  height: 1px;
+  background-color: var(--surface-border);
+  max-width: 100px;
+}
+
+/* ==========================================================================
+   14. Admonitions - Minimal
+   ========================================================================== */
+
+.alert {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0;
+  border: 1px solid var(--surface-border);
+  border-left-width: 4px;
+  background-color: var(--surface-elevated);
+}
+
+.alert--info {
+  border-left-color: var(--color-gray-500);
+}
+
+.alert--warning {
+  border-left-color: var(--color-gray-700);
+}
+
+.alert--danger {
+  border-left-color: var(--color-black);
+}
+
+.alert--success {
+  border-left-color: var(--color-gray-600);
+}
+
+/* ==========================================================================
+   15. Table of Contents
+   ========================================================================== */
+
+.table-of-contents {
+  font-size: 0.8125rem;
+  border-left: 1px solid var(--surface-border);
+  padding-left: 1rem;
+}
+
+.table-of-contents__link {
+  color: var(--text-muted);
+  display: block;
+  padding: 0.25rem 0;
+  transition: color var(--transition-fast);
+}
+
+.table-of-contents__link:hover {
+  color: var(--text-primary);
+}
+
+.table-of-contents__link--active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   16. Pagination
+   ========================================================================== */
+
+.pagination-nav {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--surface-border);
+}
+
+.pagination-nav__link {
+  border: 1px solid var(--surface-border);
+  border-radius: 0;
+  padding: 1.25rem 1.5rem;
+  transition: border-color var(--transition-fast);
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--color-black);
+}
+
+[data-theme='dark'] .pagination-nav__link:hover {
+  border-color: var(--color-white);
+}
+
+.pagination-nav__sublabel {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.pagination-nav__label {
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+/* ==========================================================================
+   17. Buttons - Solid & Clear
+   ========================================================================== */
+
+.button {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: -0.01em;
+  border-radius: 0;
+  padding: 0.75rem 1.5rem;
+  transition: all var(--transition-fast);
+  text-transform: none;
+}
+
+.button--primary {
+  background-color: var(--color-black);
+  border: 2px solid var(--color-black);
+  color: var(--color-white);
+}
+
+.button--primary:hover {
+  background-color: var(--color-gray-800);
+  border-color: var(--color-gray-800);
+  color: var(--color-white);
+}
+
+[data-theme='dark'] .button--primary {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-black);
+}
+
+[data-theme='dark'] .button--primary:hover {
+  background-color: var(--color-gray-200);
+  border-color: var(--color-gray-200);
+}
+
+.button--secondary {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-black);
+  color: var(--color-black);
+}
+
+.button--secondary:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+[data-theme='dark'] .button--secondary {
+  background-color: transparent;
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+[data-theme='dark'] .button--secondary:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.button--outline {
+  background-color: transparent;
+  border: 2px solid var(--surface-border);
+  color: var(--text-primary);
+}
+
+.button--outline:hover {
+  border-color: var(--color-black);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   18. Hero Section - Bold Statement
+   ========================================================================== */
+
+.hero {
+  padding: 6rem 2rem;
+  background-color: var(--surface-background);
+  text-align: center;
+}
+
+.hero--primary {
+  background-color: var(--surface-background);
+  color: var(--text-primary);
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: 4rem;
+  }
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   19. Footer - Simple
+   ========================================================================== */
+
+.footer {
+  background-color: var(--surface-background);
+  border-top: 1px solid var(--surface-border);
+  padding: 3rem 2rem;
+}
+
+.footer--dark {
+  background-color: var(--color-gray-950);
+}
+
+[data-theme='dark'] .footer {
+  background-color: var(--color-black);
+  border-top-color: var(--color-gray-800);
+}
+
+.footer__title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.footer__link-item {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.footer__link-item:hover {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.footer__copyright {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   20. Focus States - Accessibility
+   ========================================================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-black);
+  outline-offset: 2px;
+}
+
+[data-theme='dark'] a:focus-visible,
+[data-theme='dark'] button:focus-visible,
+[data-theme='dark'] input:focus-visible,
+[data-theme='dark'] select:focus-visible,
+[data-theme='dark'] textarea:focus-visible,
+[data-theme='dark'] [tabindex]:focus-visible {
+  outline-color: var(--color-white);
+}
+
+/* ==========================================================================
+   21. Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   22. High Contrast Mode
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    --surface-border: var(--color-black);
+  }
+
+  [data-theme='dark'] {
+    --surface-border: var(--color-white);
+  }
+}
+
+/* ==========================================================================
+   23. Print Styles
+   ========================================================================== */
+
+@media print {
+  .navbar,
+  .footer,
+  .table-of-contents,
+  .pagination-nav,
+  .theme-doc-sidebar-container {
+    display: none !important;
+  }
+
+  .markdown {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .markdown h1 {
+    border-bottom: 2px solid #000;
+  }
+}
+
+/* ==========================================================================
+   24. Scrollbar Styling
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: var(--color-gray-700);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-600);
+}

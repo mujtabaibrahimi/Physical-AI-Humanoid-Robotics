@@ -1,0 +1,333 @@
+/**
+ * Homepage - High Contrast Minimalist Design
+ * Sharp, intentional, accessible
+ */
+
+/* ==========================================================================
+   Hero Section - Bold Statement
+   ========================================================================== */
+
+.heroBanner {
+  padding: 8rem 2rem;
+  text-align: center;
+  background-color: var(--surface-background);
+  border-bottom: 1px solid var(--surface-border);
+}
+
+@media (min-width: 768px) {
+  .heroBanner {
+    padding: 10rem 2rem;
+  }
+}
+
+.heroBanner :global(.hero__title) {
+  font-family: var(--font-sans);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .heroBanner :global(.hero__title) {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroBanner :global(.hero__title) {
+    font-size: 5rem;
+  }
+}
+
+.heroBanner :global(.hero__subtitle) {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .heroBanner :global(.hero__subtitle) {
+    font-size: 1.25rem;
+  }
+}
+
+/* CTA Buttons */
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.buttons :global(.button) {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.875rem 2rem;
+  border-radius: 0;
+  letter-spacing: -0.01em;
+  transition: all 100ms ease;
+}
+
+.buttons :global(.button--secondary) {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-black);
+  color: var(--color-black);
+}
+
+.buttons :global(.button--secondary:hover) {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+[data-theme='dark'] .buttons :global(.button--secondary) {
+  background-color: transparent;
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+[data-theme='dark'] .buttons :global(.button--secondary:hover) {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* ==========================================================================
+   Stats Section - Data Points
+   ========================================================================== */
+
+.statsSection {
+  padding: 5rem 2rem;
+  background-color: var(--surface-background);
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.statCard {
+  padding: 2rem 1rem;
+}
+
+.statNumber {
+  font-family: var(--font-sans);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 768px) {
+  .statNumber {
+    font-size: 4.5rem;
+  }
+}
+
+.statLabel {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Tech Section - Technologies
+   ========================================================================== */
+
+.techSection {
+  padding: 6rem 2rem;
+  background-color: var(--surface-elevated);
+}
+
+.sectionTitle {
+  font-family: var(--font-sans);
+  text-align: center;
+  margin-bottom: 4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--surface-border);
+  border: 1px solid var(--surface-border);
+}
+
+@media (min-width: 768px) {
+  .techGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.techCard {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background-color: var(--surface-background);
+  transition: background-color 100ms ease;
+}
+
+.techCard:hover {
+  background-color: var(--surface-elevated);
+}
+
+.techCard h3 {
+  font-family: var(--font-sans);
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.techCard p {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   CTA Section - Call to Action
+   ========================================================================== */
+
+.ctaSection {
+  padding: 8rem 2rem;
+  text-align: center;
+  background-color: var(--surface-background);
+  border-top: 1px solid var(--surface-border);
+}
+
+.ctaSection h2 {
+  font-family: var(--font-sans);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .ctaSection h2 {
+    font-size: 2.5rem;
+  }
+}
+
+.ctaSection p {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 576px) {
+  .ctaButtons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.ctaButtons :global(.button) {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.875rem 2rem;
+  border-radius: 0;
+  letter-spacing: -0.01em;
+  transition: all 100ms ease;
+}
+
+.ctaButtons :global(.button--primary) {
+  background-color: var(--color-black);
+  border: 2px solid var(--color-black);
+  color: var(--color-white);
+}
+
+.ctaButtons :global(.button--primary:hover) {
+  background-color: var(--color-gray-800);
+  border-color: var(--color-gray-800);
+}
+
+[data-theme='dark'] .ctaButtons :global(.button--primary) {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-black);
+}
+
+[data-theme='dark'] .ctaButtons :global(.button--primary:hover) {
+  background-color: var(--color-gray-200);
+  border-color: var(--color-gray-200);
+}
+
+.ctaButtons :global(.button--outline) {
+  background-color: transparent;
+  border: 2px solid var(--surface-border);
+  color: var(--text-primary);
+}
+
+.ctaButtons :global(.button--outline:hover) {
+  border-color: var(--color-black);
+}
+
+[data-theme='dark'] .ctaButtons :global(.button--outline:hover) {
+  border-color: var(--color-white);
+}
+
+/* ==========================================================================
+   Dark Theme
+   ========================================================================== */
+
+[data-theme='dark'] .techSection {
+  background-color: var(--color-gray-950);
+}
+
+[data-theme='dark'] .techGrid {
+  background-color: var(--color-gray-800);
+  border-color: var(--color-gray-800);
+}
+
+[data-theme='dark'] .techCard {
+  background-color: var(--color-black);
+}
+
+[data-theme='dark'] .techCard:hover {
+  background-color: var(--color-gray-900);
+}
