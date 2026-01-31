@@ -12,13 +12,15 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://mujtabaibrahimi.github.io',
+  url: process.env.VERCEL
+    ? 'https://physical-ai-humanoid-robotics.vercel.app'
+    : 'https://mujtabaibrahimi.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/projects/',
+  baseUrl: process.env.VERCEL ? '/' : '/Physical-AI-Humanoid-Robotics/',
 
   // GitHub pages deployment config
   organizationName: 'mujtabaibrahimi', // Usually your GitHub org/user name
-  projectName: 'projects', // Usually your repo name
+  projectName: 'Physical-AI-Humanoid-Robotics', // Usually your repo name
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
@@ -74,7 +76,7 @@ const config = {
             label: 'Chapters',
           },
           {
-            href: 'https://github.com/mujtabaibrahimi/projects',
+            href: 'https://github.com/mujtabaibrahimi/Physical-AI-Humanoid-Robotics',
             label: 'GitHub',
             position: 'right',
           },
