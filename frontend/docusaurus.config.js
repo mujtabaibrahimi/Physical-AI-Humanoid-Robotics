@@ -13,7 +13,7 @@ const config = {
 
   // Set the production url of your site here
   url: process.env.VERCEL
-    ? 'https://physical-ai-humanoid-robotics.vercel.app'
+    ? 'https://physical-ai-humanoid-robotics-ten-tau.vercel.app'
     : 'https://mujtabaibrahimi.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: process.env.VERCEL ? '/' : '/Physical-AI-Humanoid-Robotics/',
